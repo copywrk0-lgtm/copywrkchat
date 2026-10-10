@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ok:true,...delivery},{headers:{"Cache-Control":"no-store"}});
     } catch (error) {
       console.error("Copywrk Chat lead delivery error",error);
-      return NextResponse.json({error:"The enquiry form is not connected yet. Please use WhatsApp or email hello@copywrk.website directly."},{status:503});
+      return NextResponse.json({error:"The enquiry form is not connected yet. Please use WhatsApp or email copywrk0@gmail.com directly."},{status:503});
     }
   } catch {
     return NextResponse.json({error:"Invalid request body."}, {status:400});

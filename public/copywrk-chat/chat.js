@@ -39,7 +39,8 @@
   $('brief-btn').addEventListener('click',()=>showBrief(true));
   $('back-btn').addEventListener('click',()=>showBrief(false));
   $('success-back').addEventListener('click',()=>showBrief(false));
-  $('close-btn').addEventListener('click',()=>{if(window.parent!==window)window.parent.postMessage({type:'copywrk-chat-close'},'*')});
+  $('close-btn').addEventListener('click',()=>{if(window.parent!==window)window.parent.postMessage({type:'copywrk-chat-close'},window.location.origin)});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape' && window.parent!==window) window.parent.postMessage({type:'copywrk-chat-close'},window.location.origin)});
   chatForm.addEventListener('submit',e=>{e.preventDefault();sendMessage(textInput.value)});
   $('handoff-btn').addEventListener('click',()=>{if(config?.handoffUrl)window.open(config.handoffUrl,'_blank','noopener,noreferrer');else addBubble('assistant','WhatsApp isn’t connected yet. You can still send your brief here.')});
   leadForm.addEventListener('submit',async event=>{
@@ -55,7 +56,21 @@
       $('success-description').textContent=result.storage==='local-demo-file'?'This brief was saved in the local demo inbox. Email notifications are not configured yet.':result.notificationDelivered?'Your brief has been received and the team has been notified.':'Your brief has been saved for the Copywrk team.';
       addBubble('assistant','Your project brief has been received. Thank you for telling us about it!');
       try{sessionStorage.removeItem(cacheKey)}catch{}
-    }catch(e){errorEl.textContent=e.message;errorEl.classList.remove('hidden')}
+    }catch(e){
+      errorEl.textContent=(e.message||'Unable to send your brief.')+' You can send it manually via WhatsApp below.';
+      errorEl.classList.remove('hidden');
+      let fallback=$('lead-manual-fallback');
+      if(!fallback){
+        fallback=document.createElement('button');fallback.type='button';fallback.id='lead-manual-fallback';fallback.className='manual-fallback';fallback.textContent='Send brief via WhatsApp ↗';
+        errorEl.insertAdjacentElement('afterend',fallback);
+      }
+      fallback.onclick=()=>{
+        const note=`Hi Copywrk, I'd like to discuss a project.\nName: ${payload.name}\nContact: ${payload.contact}\nService: ${payload.projectType}\nBudget: ${payload.budget||'Not sure'}\nTimeline: ${payload.timeline||'Flexible'}\nDetails: ${payload.message||'To discuss'}`;
+        const whatsappNumber=(config?.handoffUrl||'').match(/wa\.me\/(\d+)/)?.[1];
+        if(whatsappNumber)window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(note)}`,'_blank','noopener,noreferrer');
+        else window.location.href=`mailto:copywrk0@gmail.com?subject=${encodeURIComponent('Copywrk project brief')}&body=${encodeURIComponent(note)}`;
+      };
+    }
     finally{button.disabled=false;button.querySelector('span').textContent='↗'}
   });
   async function init(){
@@ -64,12 +79,12 @@
       $('mode-label').textContent=config.mode==='ai'?'AI ASSISTANT':'SCRIPTED DEMO';
       $('privacy-note').textContent=config.mode==='ai'?'Messages are processed by an AI provider to answer you. Please avoid sharing sensitive details.':'Scripted demo: chat history stays in this browser session. Please avoid sharing sensitive details.';
       document.querySelector('.header-name').firstChild.textContent=config.brand+' ';
-      const stored=sessionStorage.getItem(cacheKey);
-      if(stored){const records=JSON.parse(stored);if(Array.isArray(records)&&records.length){records.forEach(m=>{if(['user','assistant'].includes(m.role)&&typeof m.content==='string')addBubble(m.role,m.content,false)});messages=records;}}
+      let stored=null;try{stored=sessionStorage.getItem(cacheKey)}catch{}
+      if(stored){try{const records=JSON.parse(stored);if(Array.isArray(records)&&records.length){records.forEach(m=>{if(['user','assistant'].includes(m.role)&&typeof m.content==='string')addBubble(m.role,m.content,false)});messages=records;}}catch{sessionStorage.removeItem(cacheKey)}}
       if(!messages.length)addBubble('assistant',config.welcome);
       showSuggestions(config.quickReplies);
       $('handoff-btn').classList.toggle('hidden',!config.hasWhatsApp);
-    }catch(e){$('mode-label').textContent='OFFLINE';addBubble('assistant','I can’t connect right now. You can email hello@copywrk.website or use WhatsApp to speak to the studio.');showSuggestions([])}
+    }catch(e){$('mode-label').textContent='OFFLINE';addBubble('assistant','I can’t connect right now. You can email copywrk0@gmail.com or use WhatsApp to speak to the studio.');showSuggestions([])}
   }
   init();
 })();

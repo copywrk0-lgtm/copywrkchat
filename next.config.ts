@@ -1,9 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    formats: ["image/avif", "image/webp"]
-  }
+  async redirects() {
+    return [
+      {
+        source: "/website-development-delhi",
+        destination: "/website-development",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#d4fa85"/><g stroke="#121712" stroke-width="5" stroke-linecap="round"><path d="M32 10v44M10 32h44M16.4 16.4l31.2 31.2m0-31.2L16.4 47.6"/></g></svg>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="16" fill="#f1efe8"/>
+  <text x="7" y="42" fill="#151515" font-size="35" font-family="Segoe Script, Brush Script MT, cursive" font-style="italic" font-weight="600" letter-spacing="-5">Cw</text>
+  <circle cx="53" cy="50" r="3.5" fill="#ff593d"/>
+</svg>

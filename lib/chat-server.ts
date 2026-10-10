@@ -19,8 +19,8 @@ type ChatLead = {
 
 const facts = {
   brand: "Copywrk",
-  intro: "Copywrk is an independent digital studio creating distinctive, mobile-first websites for service businesses and creative studios.",
-  services: ["Website design and development", "Interactive websites", "Portfolio websites", "Website redesign", "Website enquiry forms and lead capture", "AI website chatbot concepts"],
+  intro: "Copywrk designs and develops premium, mobile-first websites for service businesses, focused on clarity, credibility and better enquiries.",
+  services: ["Website design and development", "Portfolio websites", "Website redesign", "Website enquiry forms and lead capture", "AI website chatbot concepts and workflow automation"],
   faqs: [
     "Pricing is quoted after reviewing each project's scope; do not promise a fixed price.",
     "Timelines depend on content, pages, features and approvals.",
@@ -60,7 +60,7 @@ export function demoReply(messages: ChatMessage[]): string {
   if (/price|pricing|cost|budget|charge|rate|rupee|₹|kitna|paisa/.test(last)) return "Every project is different, so I don't want to invent a price. Is this a new website, a redesign, or a chatbot? You can also send a short project brief.";
   if (/chatbot|automation|assistant|\bai\b/.test(last)) return "We can explore a website assistant that answers common questions and helps collect project enquiries. Is it for an existing site or a new build?";
   if (/redesign|existing|revamp|improve/.test(last)) return "A redesign can make your work clearer and the enquiry journey simpler. Do you have an existing website you could share?";
-  if (/interior|architect|wedding|photograph|studio|portfolio|project/.test(last)) return "A project-focused portfolio could be a great fit. What kind of business do you run, and what would you like the website to achieve?";
+  if (/website|web site|new site|build|interior|architect|wedding|photograph|studio|portfolio|project/.test(last)) return "A project-focused portfolio could be a great fit. What kind of business do you run, and what would you like the website to achieve?";
   if (/time|timeline|days|weeks|months|urgent|soon/.test(last)) return "It depends on the pages, interactions and content readiness. Share your deadline in the brief, and Copywrk can discuss what's realistic.";
   if (/hello|hi|hey|namaste/.test(last)) return "Hey! Tell me a little about your website, redesign or automation idea, and we'll find the right next step.";
   if (/contact|talk|call|meeting|start|brief|interested/.test(last)) return "You can tap ‘Send a project brief’ below, or choose WhatsApp to talk to the studio directly.";

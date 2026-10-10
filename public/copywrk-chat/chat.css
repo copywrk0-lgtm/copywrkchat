@@ -6,33 +6,36 @@
 
 .privacy-note{border:1px solid #e6eadf;background:#f0f4e9;color:#6b8061;padding:9px 11px;font-size:9px;line-height:1.45;margin:0 0 19px;border-radius:5px}
 
-/* Copywrk / editorial palette — scoped to the iframe, not the main website */
-:root{--ink:#1b1918;--secondary:#83756e;--green:#aa4841;--paper:#f1eee7;--line:#ded7cb;--soft:#eae5db}
-.chat-shell{background:var(--paper)}
-.chat-header,.brief-header{background:#191716;color:#f6f0e8}
-.logo-sig{background:#8b302c;color:#f9efe8;border-radius:50%;font-size:27px}
-.header-soft,.header-presence{color:#c8bdb2}
-.header-presence .presence-dot{background:#e0b48d}
-.close-btn{border-color:#675e55;color:#f3ebe1}
-.close-btn:hover{border-color:#e0b48d}
-.notice{color:#887f76}.notice span:last-child{color:#8b302c}.notice-line{background:#dcd3c9}
-.msg-avatar{background:#d9c9bd;color:#6e2522}
-.bubble{background:#fffdf9;border-color:#dfd6ca;color:#211e1b}
-.user .bubble{background:#ead8cf;border-color:#dec9bf;color:#392522}
-.suggestions button{background:#eee5db;border-color:#d9c7b9;color:#622c2b}
-.suggestions button:hover{background:#e8d5c8}
-.brief-btn,.handoff-btn,.attention{color:#7e201e}
-.brief-plus{border-color:#ad817a}
-.composer-area{background:#f8f5f0;border-color:#ded5c9}
-.composer{background:#fffdfa;border-color:#d7ccc0}.composer:focus-within{outline-color:#ddc1b4}
-.composer input{color:#241d1b}.send-btn,.form-submit,.brief-success button{background:#7e201e;color:#fff5eb}
-.send-btn:hover{background:#a13934}
-.composer-footer,.composer-footer span:last-child{color:#96857b}
-.brief-overlay{background:#f1eee7}.brief-content h2 i,.brief-success h2 i{color:#8b302c}
-.brief-eyebrow,.brief-success .success-eyebrow{color:#8b302c}
-.brief-orb{background:#8b302c}
-.lead-form sup{color:#a53b32}
-.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:#a86057;box-shadow:0 0 0 2px #eed7cf}
-.consent input{accent-color:#7e201e}
-.success-mark{background:#7e201e;color:#fff}
-.privacy-note{background:#ebe4dc;border-color:#ded2c6;color:#706157}
+
+/* Palette specifically tailored to the attached Copywrk website. */
+:root{--ink:#151515;--secondary:#6a6860;--green:#ff593d;--paper:#f1efe8;--line:#d9d4c7;--soft:#e8e5dc}
+.chat-shell,.brief-overlay{background:var(--paper)}
+.chat-header,.brief-header{background:#151515;color:#f1efe8}
+.logo-sig{background:#ff593d;color:#151515;border-radius:50%;font-size:26px}
+.header-soft,.header-presence{color:#c9c6bc}
+.header-presence .presence-dot{background:#c6f05a}
+.close-btn{border-color:#67645b;color:#f1efe8}
+.close-btn:hover{border-color:#ff593d}
+.notice{color:#79766d}.notice span:last-child{color:#bd3a25}.notice-line{background:#dcd7cd}
+.msg-avatar{background:#ffe0d5;color:#ac3321}
+.bubble{background:#fffefa;border-color:#ddd6cc;color:#151515}
+.user .bubble{background:#e7f7c6;border-color:#d4eaa5;color:#242a15}
+.suggestions button{background:#fff8f2;border-color:#d8c9b7;color:#542c22}
+.suggestions button:hover{background:#ffebe2}
+.brief-btn,.handoff-btn,.attention{color:#b73825}
+.brief-plus{border-color:#c87766}
+.composer-area{background:#faf9f5;border-color:#dcd4c8}
+.composer{background:#fffefa;border-color:#d5ccc2}.composer:focus-within{outline-color:#ffd3c8}
+.composer input{color:#151515}.send-btn,.form-submit,.brief-success button{background:#151515;color:#f1efe8}
+.send-btn:hover,.form-submit:hover{background:#ac3925}
+.composer-footer,.composer-footer span:last-child{color:#847a70}
+.brief-content h2 i,.brief-success h2 i{color:#bc422e}
+.brief-eyebrow,.brief-success .success-eyebrow{color:#af3b29}
+.brief-orb{background:#ff593d}
+.lead-form sup{color:#bd3a25}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:#e28270;box-shadow:0 0 0 2px #ffdfd4}
+.consent input{accent-color:#bd3a25}
+.success-mark{background:#c6f05a;color:#151515}
+.privacy-note{background:#eae7de;border-color:#ddd6cc;color:#686157}
+
+.manual-fallback{display:block;margin:8px 0 15px;width:100%;min-height:44px;background:#ff593d;border:1px solid #151515;color:#151515;border-radius:6px;font-size:12px;font-weight:800;cursor:pointer}.manual-fallback:hover{background:#ff765e}
