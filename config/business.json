@@ -1,0 +1,25 @@
+{
+  "brand": "Copywrk",
+  "agentName": "Studio assistant",
+  "welcome": "Hey there. Tell me what you’re building — I’ll help you figure out the right next step.",
+  "website": "https://copywrk.website",
+  "email": "",
+  "whatsappNumber": "",
+  "accent": "#D4FA85",
+  "intro": "Copywrk creates thoughtful, mobile-first websites with a strong focus on visual design, clear content and usable enquiry flows.",
+  "services": [
+    "Website design and development",
+    "Portfolio websites for creative businesses",
+    "Website redesigns",
+    "Website enquiry forms and lead capture",
+    "Custom interactive website experiences"
+  ],
+  "faqs": [
+    {"question":"How much does a website cost?","answer":"Pricing depends on the project scope, content, pages and features. Ask for a brief to get an accurate quote."},
+    {"question":"How long does a project take?","answer":"Timelines depend on scope and asset readiness. We can estimate after understanding the brief."},
+    {"question":"Do you build mobile-friendly websites?","answer":"Yes, mobile-first design is a core focus."},
+    {"question":"Can I discuss my project before committing?","answer":"Yes. Share an outline of your project and Copywrk can follow up."}
+  ],
+  "quickReplies": ["I need a website", "Redesign my site", "See pricing", "I want a chatbot"],
+  "privacyNotice": "This assistant uses your messages to answer questions. If you submit a brief, we’ll use your contact details to respond. Don't share passwords or payment details."
+}
