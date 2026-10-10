@@ -1,0 +1,40 @@
+import type { Project } from "@/lib/types";
+
+export const projects: Project[] = [
+  {
+    index: "01",
+    slug: "manan-creations",
+    name: "Manan Creations",
+    type: "Luxury weddings / Editorial",
+    line: "A wedding brand rebuilt like a world, not a brochure.",
+    summary: "A cinematic wedding-planning concept built around trust, destination storytelling and a slower editorial rhythm.",
+    image: "/images/manan.png",
+    imagePosition: "center",
+    accent: "#8b261f",
+    services: ["Direction", "UX", "Motion", "Frontend"],
+  },
+  {
+    index: "02",
+    slug: "ever-after",
+    name: "Ever After",
+    type: "Weddings / Bahrain + Mumbai",
+    line: "Old-world intimacy, modern enquiry flow.",
+    summary: "Deep forest, burgundy and warm cream translated into an editorial wedding experience with restrained motion and direct enquiry paths.",
+    image: "/images/copywrk-portfolio.png",
+    imagePosition: "50% 22%",
+    accent: "#6f2638",
+    services: ["Art direction", "Responsive", "GSAP", "Conversion"],
+  },
+  {
+    index: "03",
+    slug: "trinity-wraps",
+    name: "Trinity Wraps",
+    type: "Automotive / Culture",
+    line: "A sharper digital presence for a louder physical product.",
+    summary: "Dark automotive imagery, large type and direct booking paths shaped into a compact performance-first showcase.",
+    image: "/images/copywrk-portfolio.png",
+    imagePosition: "23% 52%",
+    accent: "#a53a24",
+    services: ["Strategy", "Design", "Mobile", "Lead capture"],
+  },
+];

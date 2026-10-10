@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#f7f7f1" />
+<title>Copywrk / Studio assistant</title>
+<link rel="stylesheet" href="/copywrk-chat/chat.css" />
+</head>
+<body>
+<div class="chat-shell" id="chat-shell">
+  <header class="chat-header">
+    <div class="header-title-group"><div class="logo-sig" aria-hidden="true">✳</div><div><div class="header-name">Copywrk <span class="header-soft">/ Assistant</span></div><div class="header-presence"><span class="presence-dot"></span> Here to help <span class="dot-sep">·</span> Replies in a moment</div></div></div>
+    <button class="close-btn" id="close-btn" type="button" aria-label="Close chat" title="Close chat">×</button>
+  </header>
+  <div class="chat-inner">
+    <div class="notice"><span>STUDIO CONVERSATION</span><span class="notice-line"></span><span id="mode-label">LOADING...</span></div>
+    <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions">
+      <div class="date-stamp">A CONVERSATION STARTS HERE</div><p class="privacy-note" id="privacy-note">Please avoid sharing sensitive information.</p>
+    </div>
+    <div class="suggestions" id="suggestions" aria-label="Suggested questions"></div>
+  </div>
+  <div class="composer-area">
+    <div class="composer-actions"><button id="brief-btn" class="brief-btn" type="button"><span class="brief-plus">+</span> Send a project brief</button><button id="handoff-btn" class="handoff-btn hidden" type="button">WhatsApp ↗</button></div>
+    <form id="chat-form" class="composer" autocomplete="off"><input id="chat-input" type="text" maxlength="1400" placeholder="Ask me anything..." aria-label="Your message" required /><button class="send-btn" id="send-btn" type="submit" aria-label="Send message">↗</button></form>
+    <div class="composer-footer"><span>A COPYWRK STUDIO TOOL</span><span>✳</span></div>
+  </div>
+  <section class="brief-overlay hidden" id="brief-overlay" aria-labelledby="brief-heading">
+    <header class="brief-header"><button class="back-btn" id="back-btn" type="button">← Back to chat</button><span>ENQUIRY / 001</span></header>
+    <div class="brief-content" id="brief-content"><div class="brief-eyebrow"><span class="brief-orb"></span> JUST A FEW DETAILS</div><h2 id="brief-heading">Tell us about<br/><i>your idea.</i></h2><p class="brief-lede">A short brief helps us reply with something actually useful.</p>
+      <form id="lead-form" class="lead-form" novalidate>
+        <div class="trap" aria-hidden="true"><label>Company site<input name="companySite" tabindex="-1" autocomplete="off" /></label></div>
+        <label for="lead-name">Your name <sup>*</sup></label><input id="lead-name" name="name" autocomplete="name" required maxlength="90" placeholder="What should we call you?" />
+        <label for="lead-contact">Email or phone <sup>*</sup></label><input id="lead-contact" name="contact" autocomplete="email" required maxlength="150" placeholder="Where can we reach you?" />
+        <label for="lead-type">What do you need? <sup>*</sup></label><select id="lead-type" name="projectType" required><option value="">Choose a service</option><option>New website</option><option>Website redesign</option><option>AI chatbot / automation</option><option>Something else</option></select>
+        <div class="half-fields"><div><label for="lead-budget">Budget range</label><select id="lead-budget" name="budget"><option value="">Not sure yet</option><option>Under ₹25,000</option><option>₹25,000–₹50,000</option><option>₹50,000–₹1 lakh</option><option>₹1 lakh+</option></select></div><div><label for="lead-timeline">Timeline</label><select id="lead-timeline" name="timeline"><option value="">Flexible</option><option>ASAP</option><option>Within 1 month</option><option>1–3 months</option><option>Just exploring</option></select></div></div>
+        <label for="lead-message">Anything else?</label><textarea id="lead-message" name="message" maxlength="1600" rows="3" placeholder="Your business, inspiration, or a link..." ></textarea>
+        <label class="consent"><input id="lead-consent" name="consent" type="checkbox" required /><span>I agree to be contacted about this enquiry. No mailing list, no spam.</span></label>
+        <p class="form-error hidden" id="form-error" role="alert"></p>
+        <button type="submit" class="form-submit" id="lead-submit">Send my brief <span>↗</span></button>
+      </form>
+    </div>
+    <div class="brief-success hidden" id="brief-success" role="status"><div class="success-mark">✓</div><span class="success-eyebrow">BRIEF RECEIVED</span><h2>Beautiful.<br/><i>It's on its way.</i></h2><p id="success-description">Your enquiry has been captured.</p><button id="success-back" type="button">Back to conversation ↗</button></div>
+  </section>
+</div>
+<script src="/copywrk-chat/chat.js" defer></script>
+</body>
+</html>
