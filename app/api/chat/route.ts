@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const messages = safeMessages(payload?.messages);
     if (!messages) return NextResponse.json({error:"Invalid chat messages."}, {status:400});
     if (!limited(request)) return NextResponse.json({error:"Too many requests. Please try again in a few minutes."}, {status:429});
-    if (!process.env.OPENAI_API_KEY) return NextResponse.json({reply:demoReply(messages),mode:"demo"},{headers:{"Cache-Control":"no-store"}});
+    if (!process.env.GEMINI_API_KEY) return NextResponse.json({reply:demoReply(messages),mode:"demo"},{headers:{"Cache-Control":"no-store"}});
     try {
       const reply = await aiReply(messages);
       return NextResponse.json({reply,mode:"ai"},{headers:{"Cache-Control":"no-store"}});
