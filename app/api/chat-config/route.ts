@@ -12,6 +12,6 @@ export function GET() {
     website: "https://copywrk.website",
     hasWhatsApp: Boolean(number),
     handoffUrl: number ? `https://wa.me/${number}?text=${encodeURIComponent("Hi Copywrk, I would like to discuss a website project.")}` : null,
-    mode: process.env.OPENAI_API_KEY ? "ai" : "demo",
+    mode: process.env.GEMINI_API_KEY ? "ai" : "demo",
   }, { headers: { "Cache-Control": "no-store" } });
 }
